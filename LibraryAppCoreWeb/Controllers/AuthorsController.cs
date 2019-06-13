@@ -11,8 +11,6 @@ namespace LibraryAppCoreWeb.Controllers
     {
         private ApplicationDbContext _context;
 
-        // TODO - Seeda databasen med författare
-
         public AuthorsController(ApplicationDbContext context)
         {
             _context = context;

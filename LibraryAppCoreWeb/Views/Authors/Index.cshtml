@@ -9,7 +9,25 @@
 @if (!Model.Any())
 {
     <p>There are no authors added yet.</p>
-
-    //TODO -Fixa tabell
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var author in Model)
+            {
+                <tr>
+                    <td>@author.Firstname</td>
+                    <td>@author.Lastname</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
 
