@@ -17,6 +17,7 @@ namespace LibraryAppCoreWeb.Controllers
             _context = context;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             var books = _context.Books.ToList();
@@ -24,6 +25,11 @@ namespace LibraryAppCoreWeb.Controllers
             return View(books);
         }
 
+        public IActionResult Edit(int id)
+        {
+            var books = _context.Books.SingleOrDefault(b => b.Id == id);
 
+            return View(books);
+        }
     }
 }
