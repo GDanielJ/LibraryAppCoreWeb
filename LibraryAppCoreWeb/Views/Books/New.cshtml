@@ -1,0 +1,21 @@
+﻿@model LibraryAppCoreWeb.Models.Book
+
+@{
+    ViewData["Title"] = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New book</h2>
+
+@using (Html.BeginForm("Create", "Books"))
+{
+    <div class="from-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { style = "width:255px", @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(m => m.ReleaseDate)
+        @Html.TextBoxFor(m => m.ReleaseDate, "{0:d MMM yyyy}", new { style = "width:255px", @class = "form-control"})
+    </div>
+}
+
