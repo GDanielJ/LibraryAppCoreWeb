@@ -12,7 +12,7 @@ namespace LibraryAppCoreWeb.ViewModels
         public string Name { get; set; }
 
         [Display(Name = "Release date")]
-        public DateTime ReleaseDate { get; set; }
+        public DateTime? ReleaseDate { get; set; }
 
         public IEnumerable<Author> Authors { get; set; }
 

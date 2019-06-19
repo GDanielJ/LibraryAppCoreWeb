@@ -26,7 +26,7 @@ namespace LibraryAppCoreWeb.Controllers
             return View(books);
         }
 
-        public IActionResult New() //TODO - forts här. Skapa ny form BookForm
+        public IActionResult New()
         {
             var authors = _context.Authors.ToList();
             var viewModel = new BookFormViewModel()
@@ -34,19 +34,42 @@ namespace LibraryAppCoreWeb.Controllers
                 Authors = authors
             };
 
-            return View();
+            return View("BookForm", viewModel);
         }
 
         public IActionResult Edit(int id)
         {
-            var books = _context.Books.SingleOrDefault(b => b.Id == id);
+            var bookInDb = _context.Books.SingleOrDefault(b => b.Id == id);
+            var viewModel = new BookFormViewModel(bookInDb);
 
-            return View(books);
+            return View("BookForm", viewModel);
         }
 
+        [HttpPost]
         public IActionResult Save(Book book)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new BookFormViewModel(book);
 
+                return View("BookForm", viewModel);
+            }
+
+            if (book.Id == 0)
+            {
+                _context.Books.Add(book);
+            }
+            else
+            {
+                var bookInDb = _context.Books.Single(b => b.Id == book.Id);
+
+                bookInDb.Name = book.Name;
+                bookInDb.ReleaseDate = book.ReleaseDate;
+            };
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Books");
         }
 
     }
