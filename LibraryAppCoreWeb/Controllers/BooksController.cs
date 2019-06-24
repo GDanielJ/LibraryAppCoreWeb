@@ -40,6 +40,12 @@ namespace LibraryAppCoreWeb.Controllers
         public IActionResult Edit(int id)
         {
             var bookInDb = _context.Books.SingleOrDefault(b => b.Id == id);
+
+            if (bookInDb == null)
+            {
+                return NotFound();
+            }
+
             var viewModel = new BookFormViewModel(bookInDb);
 
             return View("BookForm", viewModel);

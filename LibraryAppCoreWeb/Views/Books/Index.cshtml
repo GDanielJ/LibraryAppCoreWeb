@@ -28,7 +28,7 @@ else
                 <tr>
                     <td>@book.Name</td>
                     <td>@book.ReleaseDate.ToString("dd MMMM yyyy") </td>
-                    @* TODO -- Lägg till kolumn med "Edit"*@
+                    <td>@Html.ActionLink("Edit","Edit","Books", new { id=book.Id})</td>
                 </tr>
             }
         </tbody>
