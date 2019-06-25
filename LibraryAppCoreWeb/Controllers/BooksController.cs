@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using LibraryAppCoreWeb.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using LibraryAppCoreWeb.Models;
 using LibraryAppCoreWeb.Data;
 using LibraryAppCoreWeb.ViewModels;
 
@@ -39,14 +40,17 @@ namespace LibraryAppCoreWeb.Controllers
 
         public IActionResult Edit(int id)
         {
-            var bookInDb = _context.Books.SingleOrDefault(b => b.Id == id);
+            var bookInDb = _context.Books.Include(a => a.AuthorId).SingleOrDefault(b => b.Id == id);
 
             if (bookInDb == null)
             {
                 return NotFound();
             }
 
-            var viewModel = new BookFormViewModel(bookInDb);
+            var viewModel = new BookFormViewModel(bookInDb)
+            {
+                Authors = _context.Authors.ToList()
+            };
 
             return View("BookForm", viewModel);
         }
