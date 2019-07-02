@@ -14,6 +14,8 @@ namespace LibraryAppCoreWeb.ViewModels
         [Display(Name = "Release date")]
         public DateTime? ReleaseDate { get; set; }
 
+        public Author Author { get; set; }
+
         public int? AuthorId { get; set; }
 
         public IEnumerable<Author> Authors { get; set; }

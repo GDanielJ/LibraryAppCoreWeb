@@ -20,6 +20,9 @@ else
             <tr>
                 <th>Book</th>
                 <th>Release date</th>
+                <th>Author</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -28,7 +31,14 @@ else
                 <tr>
                     <td>@book.Name</td>
                     <td>@book.ReleaseDate.ToString("dd MMMM yyyy") </td>
+                    <td>@book.Author.Firstname @book.Author.Lastname</td>
                     <td>@Html.ActionLink("Edit","Edit","Books", new { id=book.Id})</td>
+                    <td>
+                        @using (Html.BeginForm($"DeleteBook/{ book.Id }/", "Books"))
+                        {
+                            <button type="submit" class="btn btn-link">Delete</button>
+                        }
+                    </td>
                 </tr>
             }
         </tbody>

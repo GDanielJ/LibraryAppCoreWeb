@@ -22,7 +22,7 @@ namespace LibraryAppCoreWeb.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var books = _context.Books.ToList();
+            var books = _context.Books.Include(a => a.Author).ToList();
 
             return View(books);
         }
@@ -40,16 +40,19 @@ namespace LibraryAppCoreWeb.Controllers
 
         public IActionResult Edit(int id)
         {
-            var bookInDb = _context.Books.Include(a => a.AuthorId).SingleOrDefault(b => b.Id == id);
+            var bookInDb = _context.Books.SingleOrDefault(b => b.Id == id);
 
             if (bookInDb == null)
             {
                 return NotFound();
             }
 
+            IEnumerable<Author> authors = _context.Authors.ToList();
+
             var viewModel = new BookFormViewModel(bookInDb)
             {
-                Authors = _context.Authors.ToList()
+                Authors = authors,
+                Author = authors.SingleOrDefault(a => a.Id == bookInDb.AuthorId)
             };
 
             return View("BookForm", viewModel);
@@ -77,6 +80,20 @@ namespace LibraryAppCoreWeb.Controllers
                 bookInDb.ReleaseDate = book.ReleaseDate;
             };
 
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Books");
+        }
+
+        [HttpPost] // Borde vara HttpDelete
+        public IActionResult DeleteBook(int id)
+        {
+            var bookInDb = _context.Books.SingleOrDefault(b => b.Id == id);
+
+            if (bookInDb == null)
+                return NotFound();
+
+            _context.Remove(bookInDb);
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Books");
