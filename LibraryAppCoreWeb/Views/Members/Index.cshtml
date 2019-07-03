@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Member>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Members</h2>
+
+@if (!Model.Any())
+{
+    <p>There are no members yet.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var member in Model)
+            {
+                <tr>
+                    <td>@member.Id</td>
+                    <td>@member.Firstname</td>
+                    <td>@member.Lastname</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

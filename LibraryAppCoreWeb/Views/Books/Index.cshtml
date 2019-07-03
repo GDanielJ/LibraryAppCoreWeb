@@ -32,7 +32,7 @@ else
                     <td>@book.Name</td>
                     <td>@book.ReleaseDate.ToString("dd MMMM yyyy") </td>
                     <td>@book.Author.Firstname @book.Author.Lastname</td>
-                    <td>@Html.ActionLink("Edit","Edit","Books", new { id=book.Id})</td>
+                    <td>@Html.ActionLink("Edit", "Edit", "Books", new { id=book.Id}, new { @class = "btn btn-link" })</td>
                     <td>
                         @using (Html.BeginForm($"DeleteBook/{ book.Id }/", "Books"))
                         {
