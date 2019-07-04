@@ -6,6 +6,9 @@
 }
 
 <h2>Members</h2>
+<p>
+    @Html.ActionLink("NEW MEMBER", "New", "Members", null, new { @class = "btn btn-primary"})
+</p>
 
 @if (!Model.Any())
 {
@@ -19,6 +22,8 @@ else
                 <th>Id</th>
                 <th>Firstname</th>
                 <th>Lastname</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +33,13 @@ else
                     <td>@member.Id</td>
                     <td>@member.Firstname</td>
                     <td>@member.Lastname</td>
+                    <td>@Html.ActionLink("Edit", "Edit", "Members", new { id=member.Id }, new { @class="btn btn-link" })</td>
+                    <td>
+                        @using (Html.BeginForm($"DeleteMember/{member.Id}", "Members"))
+                        {
+                            <button type="submit" class="btn btn-link">Delete</button>
+                        }
+                    </td>
                 </tr>
             }
         </tbody>

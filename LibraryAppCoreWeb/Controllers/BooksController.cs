@@ -27,6 +27,7 @@ namespace LibraryAppCoreWeb.Controllers
             return View(books);
         }
 
+        [HttpGet]
         public IActionResult New()
         {
             var authors = _context.Authors.ToList();
@@ -38,6 +39,7 @@ namespace LibraryAppCoreWeb.Controllers
             return View("BookForm", viewModel);
         }
 
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             var bookInDb = _context.Books.SingleOrDefault(b => b.Id == id);

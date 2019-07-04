@@ -1,0 +1,23 @@
+﻿@model LibraryAppCoreWeb.ViewModels.MemberFormViewModel
+
+@{
+    ViewData["Title"] = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+
+@using (Html.BeginForm("Save", "Members"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Firstname)
+        @Html.TextBoxFor(m => m.Firstname, new { style = "width:255px", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Lastname)
+        @Html.TextBoxFor(m => m.Lastname, new { style = "width:255px", @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
