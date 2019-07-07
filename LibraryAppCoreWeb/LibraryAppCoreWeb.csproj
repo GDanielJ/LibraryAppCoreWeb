@@ -8,6 +8,12 @@
   <ItemGroup>
     <Compile Remove="Data\Migrations\20190625183702_AddedAuthorIdToBooksTable.cs" />
     <Compile Remove="Data\Migrations\20190625183702_AddedAuthorIdToBooksTable.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190704184636_AddedLoansTable.cs" />
+    <Compile Remove="Data\Migrations\20190704184636_AddedLoansTable.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190707152052_AddedLoansTable.cs" />
+    <Compile Remove="Data\Migrations\20190707152052_AddedLoansTable.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190707152333_AddedLoansTable.cs" />
+    <Compile Remove="Data\Migrations\20190707152333_AddedLoansTable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

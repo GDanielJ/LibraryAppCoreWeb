@@ -17,5 +17,23 @@ namespace LibraryAppCoreWeb.Data
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Member> Members { get; set; }
+        public DbSet<Loan> Loans { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<LoanBook>()
+                .HasKey(lb => new { lb.LoanId, lb.BookId });
+            modelBuilder.Entity<LoanBook>()
+                .HasOne(lb => lb.Book)
+                .WithMany(b => b.LoanBooks)
+                .HasForeignKey(lb => lb.BookId);
+            modelBuilder.Entity<LoanBook>()
+                .HasOne(lb => lb.Loan)
+                .WithMany(l => l.LoanBooks)
+                .HasForeignKey(lb => lb.LoanId);
+
+        }
     }
 }

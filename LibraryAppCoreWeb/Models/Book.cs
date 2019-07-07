@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 
 namespace LibraryAppCoreWeb.Models
@@ -16,5 +17,7 @@ namespace LibraryAppCoreWeb.Models
         public Author Author { get; set; }
 
         public int AuthorId { get; set; }
+
+        public ICollection<LoanBook> LoanBooks { get; set; }
     }
 }
