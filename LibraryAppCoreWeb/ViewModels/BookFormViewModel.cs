@@ -16,6 +16,7 @@ namespace LibraryAppCoreWeb.ViewModels
 
         public Author Author { get; set; }
 
+        [Display(Name = "Id of author")]
         public int? AuthorId { get; set; }
 
         public IEnumerable<Author> Authors { get; set; }

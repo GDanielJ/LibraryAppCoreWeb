@@ -11,8 +11,8 @@ namespace LibraryAppCoreWeb.ViewModels
         public int? Id { get; set; }
         public Member Member { get; set; }
         public ICollection<LoanBook> LoanBooks { get; set; }
-        public DateTime CheckOutDate { get; set; }
-        public DateTime DueDate { get; set; }
+        public DateTime? CheckOutDate { get; set; }
+        public DateTime? DueDate { get; set; }
         public IEnumerable<Book> Books { get; set; }
         public string Title
         {

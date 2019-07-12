@@ -17,6 +17,7 @@ namespace LibraryAppCoreWeb.Controllers
         {
             _context = Context;
         }
+
         public IActionResult New()
         {
             var books = _context.Books.ToList();
@@ -27,5 +28,10 @@ namespace LibraryAppCoreWeb.Controllers
 
             return View("LoanForm", viewModel);
         }
+
+        //public IActionResult SaveNewLoan()
+        //{
+
+        //}
     }
 }

@@ -10,7 +10,7 @@ namespace LibraryAppCoreWeb.Models
         public int Id { get; set; }
         public Member Member { get; set; }
         public ICollection<LoanBook> LoanBooks { get; set; }
-        public DateTime CheckOutDate { get; set; }
-        public DateTime DueDate { get; set; }
+        public DateTime? CheckOutDate { get; set; }
+        public DateTime? DueDate { get; set; }
     }
 }
