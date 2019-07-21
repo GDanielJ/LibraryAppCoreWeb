@@ -16,6 +16,7 @@ namespace LibraryAppCoreWeb.Controllers
             _context = context;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             var authors = _context.Authors.ToList();

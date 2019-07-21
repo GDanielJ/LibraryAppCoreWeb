@@ -19,6 +19,7 @@ namespace LibraryAppCoreWeb.Controllers
             _context = Context;
         }
 
+        [HttpGet]
         public IActionResult New()
         {
             var viewModel = new LoanFormViewModel();
@@ -26,6 +27,7 @@ namespace LibraryAppCoreWeb.Controllers
             return View("LoanForm", viewModel);
         }
 
+        [HttpPost]
         public IActionResult SaveNewLoan(LoanDto loanDto)
         {
             if (!ModelState.IsValid)

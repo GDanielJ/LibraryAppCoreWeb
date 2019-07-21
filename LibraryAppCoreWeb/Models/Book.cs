@@ -7,10 +7,15 @@ namespace LibraryAppCoreWeb.Models
 {
     public class Book
     {
+        [Required]
         public int Id { get; set; }
 
+        [Required]
+        [MaxLength(255)]
         public string Name { get; set; }
 
+        [Required]
+        [MaxLength(255)]
         [Display(Name = "Release date")]
         public DateTime ReleaseDate { get; set; }
 

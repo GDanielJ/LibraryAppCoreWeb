@@ -26,6 +26,7 @@ namespace LibraryAppCoreWeb.Controllers
             return View(members);
         }
 
+        [HttpGet]
         public IActionResult New()
         {
             var viewModel = new MemberFormViewModel();
@@ -33,6 +34,7 @@ namespace LibraryAppCoreWeb.Controllers
             return View("MemberForm", viewModel);
         }
 
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             var memberInDb = _context.Members.SingleOrDefault(b => b.Id == id);
