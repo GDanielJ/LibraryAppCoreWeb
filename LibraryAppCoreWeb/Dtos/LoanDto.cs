@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LibraryAppCoreWeb.Models;
 
-namespace LibraryAppCoreWeb.Models
+namespace LibraryAppCoreWeb.Dtos
 {
-    public class Loan
+    public class LoanDto
     {
         public int Id { get; set; }
-        public Member Member { get; set; }
         public int MemberId { get; set; }
-        public ICollection<LoanBook> LoanBooks { get; set; }
+        public int BookId { get; set; }
         public DateTime? CheckOutDate { get; set; }
         public DateTime? DueDate { get; set; }
     }

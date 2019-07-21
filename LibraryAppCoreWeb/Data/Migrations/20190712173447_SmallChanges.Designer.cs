@@ -4,14 +4,16 @@ using LibraryAppCoreWeb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LibraryAppCoreWeb.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190712173447_SmallChanges")]
+    partial class SmallChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,7 +84,7 @@ namespace LibraryAppCoreWeb.Data.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("LoanBooks");
+                    b.ToTable("LoanBook");
                 });
 
             modelBuilder.Entity("LibraryAppCoreWeb.Models.Member", b =>

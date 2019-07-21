@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 using LibraryAppCoreWeb.Models;
 
 namespace LibraryAppCoreWeb.ViewModels
@@ -9,11 +10,16 @@ namespace LibraryAppCoreWeb.ViewModels
     public class LoanFormViewModel
     {
         public int? Id { get; set; }
+
         public Member Member { get; set; }
-        public ICollection<LoanBook> LoanBooks { get; set; }
+
+        [Display(Name = "Id of member")]
+        public int MemberId { get; set; }
         public DateTime? CheckOutDate { get; set; }
         public DateTime? DueDate { get; set; }
-        public IEnumerable<Book> Books { get; set; }
+
+        [Display(Name = "Id of book")]
+        public int BookId { get; set; }
         public string Title
         {
             get

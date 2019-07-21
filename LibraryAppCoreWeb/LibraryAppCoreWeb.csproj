@@ -14,6 +14,12 @@
     <Compile Remove="Data\Migrations\20190707152052_AddedLoansTable.Designer.cs" />
     <Compile Remove="Data\Migrations\20190707152333_AddedLoansTable.cs" />
     <Compile Remove="Data\Migrations\20190707152333_AddedLoansTable.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190712173258_Test.cs" />
+    <Compile Remove="Data\Migrations\20190712173258_Test.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190713121619_Test.cs" />
+    <Compile Remove="Data\Migrations\20190713121619_Test.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190713140252_Test.cs" />
+    <Compile Remove="Data\Migrations\20190713140252_Test.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

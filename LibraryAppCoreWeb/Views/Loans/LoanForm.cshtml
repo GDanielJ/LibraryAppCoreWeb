@@ -6,10 +6,28 @@
 
 <h2>@Model.Title</h2>
 
-@*@using (Html.BeginForm("SaveNewLoan", "Loans"))
+@using (Html.BeginForm("SaveNewLoan", "Loans"))
 {
     <div class="form-group">
-        @Html.LabelFor(m => m.)
+        @Html.LabelFor(m => m.MemberId)
+        @Html.TextBoxFor(m => m.MemberId, "{0:#.#}", new { style = "width:255px", @class = "form-control" })
     </div>
-}*@
+    <div class="form-group">
+        @Html.LabelFor(m => m.BookId)
+        @Html.TextBoxFor(m => m.BookId, "{0:#.#}", new { style = "width:255px", @class = "form-control" })
+    </div>
+    @if (Model.Id != 0)
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.CheckOutDate)
+            @Html.TextBoxFor(m => m.CheckOutDate, "{0:d MMM yyyy}", new { style = "width:255px", @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.DueDate)
+            @Html.TextBoxFor(m => m.DueDate, "{0:d MMM yyyy}", new { style = "width:255px", @class = "form-control" })
+        </div>
+    }
+    @Html.HiddenFor(m => m.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}
 

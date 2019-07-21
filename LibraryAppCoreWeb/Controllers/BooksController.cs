@@ -54,7 +54,8 @@ namespace LibraryAppCoreWeb.Controllers
             var viewModel = new BookFormViewModel(bookInDb)
             {
                 Authors = authors,
-                Author = authors.SingleOrDefault(a => a.Id == bookInDb.AuthorId)
+                Author = authors.SingleOrDefault(a => a.Id == bookInDb.AuthorId),
+                AuthorId = bookInDb.AuthorId
             };
 
             return View("BookForm", viewModel);

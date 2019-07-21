@@ -26,8 +26,6 @@ namespace LibraryAppCoreWeb.Controllers
             return View(members);
         }
 
-        //TODO - Skapa Edit och New, använd MemberForm
-
         public IActionResult New()
         {
             var viewModel = new MemberFormViewModel();
