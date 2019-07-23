@@ -50,6 +50,7 @@ namespace LibraryAppCoreWeb.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Save(Member member)
         {
             if (!ModelState.IsValid)
@@ -77,6 +78,7 @@ namespace LibraryAppCoreWeb.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult DeleteMember(int id)
         {
             var memberInDb = _context.Members.SingleOrDefault(m => m.Id == id);

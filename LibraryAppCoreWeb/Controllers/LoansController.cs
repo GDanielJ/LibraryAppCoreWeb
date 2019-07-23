@@ -28,6 +28,7 @@ namespace LibraryAppCoreWeb.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult SaveNewLoan(LoanDto loanDto)
         {
             if (!ModelState.IsValid)

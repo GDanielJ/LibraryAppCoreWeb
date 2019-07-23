@@ -62,6 +62,7 @@ namespace LibraryAppCoreWeb.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Save(Book book)
         {
             if (!ModelState.IsValid)
@@ -89,6 +90,7 @@ namespace LibraryAppCoreWeb.Controllers
         }
 
         [HttpPost] // Borde vara HttpDelete
+        [ValidateAntiForgeryToken]
         public IActionResult DeleteBook(int id)
         {
             var bookInDb = _context.Books.SingleOrDefault(b => b.Id == id);
